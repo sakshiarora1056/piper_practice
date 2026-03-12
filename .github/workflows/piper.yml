@@ -52,6 +52,3 @@ jobs:
             echo " Artifact packaged"
             echo " Deployed to SAP BTP (simulated)"
             echo " Pipeline complete!"
-       
-
-            
