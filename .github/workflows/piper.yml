@@ -1,0 +1,56 @@
+name: piper-pipeline-practice
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+    piper-pipeline-practice:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Download and run Piper CLI
+          run: |
+            curl -L --output piper \
+            https://github.com/SAP/jenkins-library/releases/latest/download/piper_linux
+            chmod +x piper
+            echo "Piper downloaded successfully"
+
+        - name: Check Piper Version
+          run: |
+            ./piper version
+            echo " Piper is working!"
+            
+        - name: List Piper Steps
+          run: |
+            ./piper getDefaults
+             echo "Piper config loaded!"
+
+        - name: Simulate Build Stage
+          run: |
+            echo "  🔨 Stage: BUILD"
+            echo " Source code checked out"
+            echo " Dependencies resolved"
+            echo " Build successful (simulated)"
+
+
+        - name: Simulate Test Stage
+          run: |
+            echo " Stage: TEST"
+            echo " Unit tests passed"
+            echo " Code quality checks passed"
+            echo " All tests green (simulated)"
+         
+
+        - name: Simulate Deploy Stage
+          run: |
+            echo " Stage: DEPLOY"
+            echo " Artifact packaged"
+            echo " Deployed to SAP BTP (simulated)"
+            echo " Pipeline complete!"
+       
+
+            
