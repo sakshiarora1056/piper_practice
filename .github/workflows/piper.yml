@@ -3,6 +3,7 @@ name: piper-pipeline-practice
 on:
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
     piper-pipeline-practice:
