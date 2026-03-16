@@ -42,10 +42,9 @@ jobs:
 
         - name: Download and run Piper CLI
           run: |
-            curl -L --output piper \
-            https://github.com/SAP/jenkins-library/releases/latest/download/piper_linux
+            curl -L --output piper https://github.com/SAP/jenkins-library/releases/latest/download/piper
             chmod +x piper
-            echo "Piper downloaded successfully"
+            ./piper version
 
         - name: Check Piper Version
           run: |
