@@ -19,18 +19,18 @@ jobs:
             distribution: 'temurin'
             java-version: '17'
 
+        - name: Install JUnit Platform Console Standalone
+          run: |
+            curl -L -o junit-platform-console-standalone.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.2/junit-platform-console-standalone-1.10.2.jar
+
         - name: Compile
           run: |
-            javac Hello.java HelloTest.java
+            javac -cp .:junit-platform-console-standalone.jar Hello.java HelloTest.java
 
         - name: Set up Maven
           uses: stCarolas/setup-maven@v4
           with:
             maven-version: '3.9.6'
-
-        - name: Install JUnit Platform Console Standalone
-          run: |
-            curl -L -o junit-platform-console-standalone.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.2/junit-platform-console-standalone-1.10.2.jar
 
         - name: Run Hello World
           run: |
