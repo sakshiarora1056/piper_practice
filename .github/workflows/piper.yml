@@ -53,7 +53,7 @@ jobs:
             
         - name: List Piper Steps
           run: |
-            ./piper getDefaults
+            ./piper getDefaults --defaultsFile .pipeline/defaults.yaml
             echo "Piper config loaded!"
 
         - name: Simulate Build Stage
